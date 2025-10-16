@@ -29,7 +29,7 @@ public class AlertsPage extends BasePage {
     }
 
 
-    public AlertsPage selectResult(String result) {
+    public AlertsPage   selectResult(String result) {
         if(result != null && result.equals("Ok")){
             driver.switchTo().alert().accept();
         }else if(result != null && result.equals("Cancel")){

@@ -33,7 +33,6 @@ public class BasePage {
     public void typeWithJS(WebElement element, String text, int x, int y){
         scrollWithJS(x,y);
         type(element,text);
-
     }
 
     public void click(WebElement element){
@@ -45,7 +44,6 @@ public class BasePage {
             element.clear();
             element.sendKeys(text);
         }
-
     }
     public WebDriverWait getWait(int seconds) {
         return new WebDriverWait(driver, Duration.ofSeconds(seconds));
