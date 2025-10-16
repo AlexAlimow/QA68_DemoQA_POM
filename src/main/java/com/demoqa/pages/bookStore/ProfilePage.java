@@ -16,7 +16,7 @@ public class ProfilePage extends BasePage {
     WebElement userNameValue;
 
     public ProfilePage verifyUserName(String name) {
-        Assertions.assertTrue(userNameValue.getText().contains(name));
+        Assertions.assertTrue(isContainsText(name, userNameValue));
         return this;
     }
 }
