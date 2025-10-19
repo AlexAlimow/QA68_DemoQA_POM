@@ -1,5 +1,6 @@
 package com.demoqa.core;
 
+import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -15,11 +16,13 @@ import java.util.List;
 public class BasePage {
     protected WebDriver driver;
     public static JavascriptExecutor js;
+    public static SoftAssertions softly;
 
     public BasePage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
         js = (JavascriptExecutor) driver;
+        softly = new SoftAssertions();
     }
 
     public void scrollWithJS(int x, int y){
@@ -72,5 +75,11 @@ public class BasePage {
     public void switchToNewTabWindow(int index) {
         List<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(index));
+    }
+    public void hideAd(WebElement element){
+        js.executeScript("document.getElementById('" + element + "').style.display='none';");
+    }
+    public void hideFooter(){
+        js.executeScript("document.querySelector('footer').style.display='none';");
     }
 }

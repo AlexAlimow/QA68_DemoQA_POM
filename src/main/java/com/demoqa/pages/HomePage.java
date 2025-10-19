@@ -1,6 +1,7 @@
 package com.demoqa.pages;
 
 import com.demoqa.core.BasePage;
+import com.demoqa.pages.widgets.SelectPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,6 +35,14 @@ public class HomePage extends BasePage {
 
     public SidePanel selectAlertsFrameWindows() {
         clickWithJS(alertsFrameWindows, 0, 300);
+        return new SidePanel(driver);
+    }
+
+    @FindBy(css = ".card:nth-child(4)")
+    WebElement widgets;
+
+    public SidePanel selectWidgets() {
+        clickWithJS(widgets,0,300);
         return new SidePanel(driver);
     }
 }

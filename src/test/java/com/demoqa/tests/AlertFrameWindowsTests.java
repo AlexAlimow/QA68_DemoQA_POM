@@ -4,6 +4,7 @@ import com.demoqa.core.TestBase;
 import com.demoqa.pages.HomePage;
 import com.demoqa.pages.SidePanel;
 import com.demoqa.pages.alertsFrameWindows.AlertsPage;
+import com.demoqa.pages.alertsFrameWindows.FramesPage;
 import com.demoqa.pages.alertsFrameWindows.WindowsPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +14,7 @@ public class AlertFrameWindowsTests extends TestBase {
 
     SidePanel sidePanel;
     AlertsPage alerts;
+    FramesPage frame;
 
 
     @BeforeEach
@@ -20,6 +22,7 @@ public class AlertFrameWindowsTests extends TestBase {
         new HomePage(driver).selectAlertsFrameWindows();
         sidePanel = new SidePanel(driver);
         alerts = new AlertsPage(driver);
+        frame = new FramesPage(driver);
     }
 
     @Test
@@ -53,4 +56,28 @@ public class AlertFrameWindowsTests extends TestBase {
                 .switchToNewTab(1)
                 .verifyNewTabTitle("This is a sample page");
     }
+
+    @Test
+    public void switchToNewIframeByIndexTest(){
+        sidePanel.selectFrame();
+        frame.returnListOfFrames()
+                .switchToIframeByIndex(2)
+                .verifyByTitle("This is a sample page");
+    }
+
+    @Test
+    public void switchToIframeByIdTest(){
+        sidePanel.selectFrame();
+        frame.switchToIframeById()
+                .verifyByTitle("This is a sample page")
+                .switchToMainPage()
+                .verifyMainPageTitle("Frames")
+                ;
+    }
+    @Test
+    public void nestedIframesTest(){
+        sidePanel.selectNestedFrames().hideFooter();
+        frame.handleNestedIframes();
+    }
+
 }
