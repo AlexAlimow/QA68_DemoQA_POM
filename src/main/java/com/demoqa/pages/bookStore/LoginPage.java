@@ -17,6 +17,7 @@ public class LoginPage extends BasePage {
     WebElement passwordInput;
 
     public LoginPage enterUserData(String name, String password) {
+        scrollAndWaitOfElement(userNameInput,5,0,200);
         type(userNameInput,name);
         type(passwordInput,password);
         return this;

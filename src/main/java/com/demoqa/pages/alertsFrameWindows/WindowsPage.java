@@ -2,6 +2,7 @@ package com.demoqa.pages.alertsFrameWindows;
 
 import com.demoqa.core.BasePage;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,5 +32,7 @@ public class WindowsPage extends BasePage {
         Assertions.assertTrue(shouldHaveText(sampleHeading, title, 5));
         return this;
     }
+
+
 
 }

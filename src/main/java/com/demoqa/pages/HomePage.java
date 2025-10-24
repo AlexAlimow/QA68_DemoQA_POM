@@ -42,7 +42,23 @@ public class HomePage extends BasePage {
     WebElement widgets;
 
     public SidePanel selectWidgets() {
-        clickWithJS(widgets,0,300);
+        clickWithJS(widgets, 0, 300);
+        return new SidePanel(driver);
+    }
+
+    @FindBy(css = ".card:nth-child(5)")
+    WebElement interactions;
+
+    public SidePanel selectInteractions() {
+        clickWithJS(interactions, 0, 300);
+        return new SidePanel(driver);
+    }
+
+    @FindBy(css = ".card:nth-child(2)")
+    WebElement forms;
+
+    public SidePanel selectForms() {
+        clickWithJS(forms,0,300);
         return new SidePanel(driver);
     }
 }

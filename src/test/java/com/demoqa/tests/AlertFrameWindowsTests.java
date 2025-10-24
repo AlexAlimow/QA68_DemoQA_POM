@@ -8,6 +8,7 @@ import com.demoqa.pages.alertsFrameWindows.FramesPage;
 import com.demoqa.pages.alertsFrameWindows.WindowsPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class AlertFrameWindowsTests extends TestBase {
@@ -33,6 +34,7 @@ public class AlertFrameWindowsTests extends TestBase {
 
     @Test
     @DisplayName("Verify to -> 'Cancel' is displayed")
+    @Tag("smoky")
     public void alertWithSelectResultTest() {
         sidePanel.selectAlerts();
         alerts.clickOnConfirmButton()
